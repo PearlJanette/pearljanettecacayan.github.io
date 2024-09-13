@@ -1139,23 +1139,6 @@ p {
   color: red;
 }
 
-.about .profile-img {
-  border: 20px solid var(--accent-color);
-  padding: 0;
-}
-
-.profile-img img {
-  width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 1;
-}
-
-.content {
-  position: relative;
-  z-index: 2;
-}
-
 .row {
   position: relative;
   z-index: 0;
@@ -1414,6 +1397,10 @@ span {
 # Portfolio Section
 --------------------------------------------------------------*/
 
+h3.system-integration {
+  margin-top: 2rem; /* Adjust this value as needed */
+}
+
 .portfolio .portfolio-filters {
   padding: 0;
   margin: 0 auto 20px auto;
@@ -1518,14 +1505,75 @@ span {
   margin-bottom: 10px;
 }
 
-.large-image {
-  width: 100%;
-  max-width: 800px;
-  height: 47vb;
-  display: block;
-  margin: 0 auto;
+.portfolio-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
+.portfolio-wrap img {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  border-radius: 10%;
+  border: 2px solid red;
+}
+
+.portfolio-wrap img:hover {
+  transform: translateY(-10px);
+  border-color: darkred;
+}
+
+@media (min-width: 768px) {
+  .portfolio-wrap img {
+    max-width: 180px;
+  }
+}
+
+@media (min-width: 992px) {
+  .portfolio-wrap img {
+    max-width: 200px;
+  }
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.image {
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid red;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease, border-color 0.5s ease;
+}
+
+.image:hover img {
+  transform: scale(1.05);
+  border-color: darkred;
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    padding: 5px;
+  }
+
+  .image {
+    max-width: 100%;
+    border: 1px solid red;
+  }
+}
 /*--------------------------------------------------------------
 # Portfolio Details Section
 --------------------------------------------------------------*/
@@ -1549,11 +1597,6 @@ span {
   height: auto;
   max-width: 30%;
 }
-
-/*--------------------------------------------------------------
-# Team Section
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
 
 /*  Contact Section */
 
@@ -1646,26 +1689,6 @@ p {
 .team-member .overlay p {
   margin: 0;
   font-size: 13px;
-}
-
-/* Social Icons */
-.team-member .overlay .social a {
-  color: white;
-  margin-right: 20px;
-  transition: color 0.3s;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.3);
-  text-decoration: none;
-}
-
-.team-member .overlay .social a:hover {
-  color: #ddd;
-  background-color: rgba(153, 14, 14, 0.5);
 }
 
 /*--------------------------------------------------------------
