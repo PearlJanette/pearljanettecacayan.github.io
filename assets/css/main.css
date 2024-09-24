@@ -22,10 +22,10 @@
   --nav-font: "Poppins", sans-serif;
 }
 :root {
-  --background-color: rgb(33, 32, 32);
+  --background-color: black;
   --default-color: #444444;
   --heading-color: black;
-  --accent-color: rgb(211, 3, 3);
+  --accent-color: rgb(201, 42, 42);
   --surface-color: #ffffff;
   --contrast-color: #ffffff;
 }
@@ -104,6 +104,7 @@ h4 {
 .header .logo img {
   max-height: 36px;
   margin-right: 8px;
+  border-radius: 20%;
 }
 
 .header .logo h1 {
@@ -154,13 +155,12 @@ h4 {
 .index-page .header {
   --background-color: rgba(255, 255, 255, 0);
   --heading-color: #ffffff;
-  --nav-color: #ffffff;
 }
 
 /* Index Page Header on Scroll
 ------------------------------*/
 .index-page.scrolled .header {
-  --background-color: #292727;
+  --background-color: rgb(144, 22, 22);
 }
 
 /*--------------------------------------------------------------
@@ -824,10 +824,12 @@ section,
 /*--------------------------------------------------------------
 # Global Section Titles
 --------------------------------------------------------------*/
+
 .section-title {
   text-align: center;
   padding-bottom: 60px;
   position: relative;
+  color: #771106;
 }
 
 .section-title h2 {
@@ -837,15 +839,16 @@ section,
   padding-bottom: 20px;
   text-transform: uppercase;
   position: relative;
+  color: #771106;
 }
 
 .section-title h2:before {
   content: "";
   position: absolute;
   display: block;
-  width: 160px;
-  height: 1px;
-  background: color-mix(in srgb, var(--default-color), transparent 60%);
+  width: 300px;
+  height: 2px;
+  background: color-mix(in srgb, #d07166, transparent 60%);
   left: 0;
   right: 0;
   bottom: 1px;
@@ -872,6 +875,10 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+
+.sitename b {
+  color: white; /* Ensure the bold text is also the same color */
+}
 
 #particles-js {
   position: absolute;
@@ -1067,12 +1074,13 @@ section,
   overflow: hidden;
   border-right: none;
   font-size: 16px;
+  animation: typing 1ms steps(22, end), blink-caret 1s step-end infinite;
 }
 
 /* Blinking cursor effect */
 .typing-effect.blink {
   border-right: 2.5px solid red;
-  animation: blink-caret 1.5s step-end infinite;
+  animation: blink-caret 1s step-end infinite;
 }
 
 /* Slower blinking cursor animation */
@@ -1088,8 +1096,210 @@ section,
 
 /*--------------------------------------------------------------
 
-# About Section
+#About Section
 --------------------------------------------------------------*/
+
+.timeline {
+  position: relative;
+  padding: 0;
+  list-style: none;
+}
+.timeline:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 40px;
+  width: 2px;
+  margin-left: -1.5px;
+  content: "";
+  background-color: #e9ecef;
+}
+.timeline > li {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 50px;
+}
+.timeline > li:after,
+.timeline > li:before {
+  display: table;
+  content: " ";
+}
+.timeline > li:after {
+  clear: both;
+}
+.timeline > li .timeline-panel {
+  position: relative;
+  float: right;
+  width: 100%;
+  padding: 0 20px 0 100px;
+  text-align: left;
+}
+.timeline > li .timeline-panel:before {
+  right: auto;
+  left: -15px;
+  border-right-width: 15px;
+  border-left-width: 0;
+}
+.timeline > li .timeline-panel:after {
+  right: auto;
+  left: -14px;
+  border-right-width: 14px;
+  border-left-width: 0;
+}
+.timeline > li .timeline-image {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  margin-left: 0;
+  text-align: center;
+  color: white;
+  border: 7px solid #e9ecef;
+  border-radius: 100%;
+  background-color: #8d0f0f;
+}
+
+.timeline > li .timeline-image h4,
+.timeline > li .timeline-image .h4 {
+  font-size: 10px;
+  line-height: 14px;
+  margin-top: 12px;
+}
+.timeline-inverted {
+  display: flex;
+  flex-direction: row-reverse; /* Align items in reverse order */
+}
+
+.timeline-panel {
+  text-align: right; /* Align text to the right */
+}
+
+.timeline > li.timeline-inverted > .timeline-panel {
+  float: right;
+  padding: 0 20px 0 100px;
+  text-align: left;
+}
+.timeline > li.timeline-inverted > .timeline-panel:before {
+  right: auto;
+  left: -15px;
+  border-right-width: 15px;
+  border-left-width: 0;
+}
+.timeline > li.timeline-inverted > .timeline-panel:after {
+  right: auto;
+  left: -14px;
+  border-right-width: 14px;
+  border-left-width: 0;
+}
+.timeline > li:last-child {
+  margin-bottom: 0;
+}
+.timeline .timeline-heading h4,
+.timeline .timeline-heading .h4 {
+  margin-top: 0;
+  color: inherit;
+}
+.timeline .timeline-heading h4.subheading,
+.timeline .timeline-heading .subheading.h4 {
+  text-transform: none;
+}
+.timeline .timeline-body > ul,
+.timeline .timeline-body > p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .timeline:before {
+    left: 50%;
+  }
+  .timeline > li {
+    min-height: 100px;
+    margin-bottom: 100px;
+  }
+  .timeline > li .timeline-panel {
+    float: left;
+    width: 41%;
+    padding: 0 20px 20px 30px;
+    text-align: right;
+  }
+  .timeline > li .timeline-image {
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+  }
+  .timeline > li .timeline-image h4,
+  .timeline > li .timeline-image .h4 {
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 16px;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    float: right;
+    padding: 0 30px 20px 20px;
+    text-align: left;
+  }
+}
+@media (min-width: 992px) {
+  .timeline > li {
+    min-height: 150px;
+  }
+  .timeline > li .timeline-panel {
+    padding: 0 20px 20px;
+  }
+  .timeline > li .timeline-image {
+    width: 150px;
+    height: 150px;
+    margin-left: -75px;
+  }
+  .timeline > li .timeline-image h4,
+  .timeline > li .timeline-image .h4 {
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 30px;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    padding: 0 20px 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .timeline > li {
+    min-height: 170px;
+  }
+  .timeline > li .timeline-panel {
+    padding: 0 20px 20px 100px;
+  }
+  .timeline > li .timeline-image {
+    width: 170px;
+    height: 170px;
+    margin-left: -85px;
+  }
+  .timeline > li .timeline-image h4,
+  .timeline > li .timeline-image .h4 {
+    margin-top: 40px;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    padding: 0 100px 20px 20px;
+  }
+}
+
+/* Adjust the image size and apply a hover effect */
+.profile-img img {
+  width: 100%; /* Ensure the image takes the full width of its container */
+  max-width: 300px; /* Set a maximum width for the image */
+  height: auto; /* Maintain the aspect ratio */
+  border-radius: 10px; /* Adds rounded corners to the image */
+  background-color: #5a0a0a; /* Background color (though may not be visible if the image is loaded) */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Smooth hover effect with opacity transition */
+  opacity: 0.9; /* Slightly transparent for a softer look */
+}
+
+.profile-img img:hover {
+  transform: scale(1.1); /* Zoom the image slightly on hover */
+  box-shadow: 0 20px 40px rgba(216, 137, 137, 0.5); /* Increased shadow for a lifting effect */
+  opacity: 1; /* Fully opaque on hover */
+}
 
 .typewriter-repeat {
   display: inline-block;
@@ -1267,6 +1477,50 @@ span {
 
 # Skills Section
 --------------------------------------------------------------*/
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-item {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.image-item img {
+  max-width: 50px;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-caption {
+  text-align: center;
+  background-color: var(--nav-hover-color);
+  color: #fff;
+  padding: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black;
+  border-radius: 50%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  filter: invert(1);
+}
+
+.carousel-control-prev-icon:focus,
+.carousel-control-next-icon:focus {
+  outline: none;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
 
 .skills .content h3 {
   font-size: 2rem;
@@ -1505,74 +1759,12 @@ h3.system-integration {
   margin-bottom: 10px;
 }
 
-.portfolio-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.portfolio-wrap img {
+.large-image {
   width: 100%;
-  height: auto;
-  max-width: 200px;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
-  border-radius: 10%;
-  border: 2px solid red;
-}
-
-.portfolio-wrap img:hover {
-  transform: translateY(-10px);
-  border-color: darkred;
-}
-
-@media (min-width: 768px) {
-  .portfolio-wrap img {
-    max-width: 180px;
-  }
-}
-
-@media (min-width: 992px) {
-  .portfolio-wrap img {
-    max-width: 200px;
-  }
-}
-
-.image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-.image {
-  width: 100%;
-  max-width: 600px;
-  border: 2px solid red;
-  overflow: hidden;
-}
-
-.image img {
-  width: 100%;
-  height: auto;
-  transition: transform 0.5s ease, border-color 0.5s ease;
-}
-
-.image:hover img {
-  transform: scale(1.05);
-  border-color: darkred;
-}
-
-@media (max-width: 768px) {
-  .image-container {
-    padding: 5px;
-  }
-
-  .image {
-    max-width: 100%;
-    border: 1px solid red;
-  }
+  max-width: 800px;
+  height: 47vb;
+  display: block;
+  margin: 0 auto;
 }
 /*--------------------------------------------------------------
 # Portfolio Details Section
@@ -1600,18 +1792,21 @@ h3.system-integration {
 
 /*  Contact Section */
 
-.contact .info-wrap {
-  padding: 20px;
-  border-radius: 8px;
-}
-
 .info-wrap h3,
 p {
   color: white;
 }
 
 .contact .info-item {
-  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.contact .info-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .contact .info-item i {
@@ -1646,6 +1841,7 @@ p {
 }
 
 /* Team Member Container */
+
 .team-member {
   position: relative;
   text-align: center;
@@ -1657,6 +1853,15 @@ p {
 .team-member .pic img {
   width: 100%;
   height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #5a0a0a;
+  border-radius: 10px;
+}
+
+/* Scale image on hover */
+.team-member:hover .pic img {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(216, 137, 137, 0.5);
 }
 
 /* Overlay to display the name and other info */
@@ -1676,7 +1881,6 @@ p {
 .team-member .overlay h4 {
   margin: 0;
   font-size: 20px;
-  color: white;
 }
 
 .team-member .overlay span {
@@ -1689,6 +1893,10 @@ p {
 .team-member .overlay p {
   margin: 0;
   font-size: 13px;
+}
+
+.team-member .overlay h4 {
+  color: #ffffff;
 }
 
 /*--------------------------------------------------------------
